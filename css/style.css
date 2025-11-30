@@ -8,6 +8,8 @@
 
 body {
     font-family: 'Poppins', sans-serif;
+    width: 1140px;
+    margin: 0 auto;
 }
 
 nav .container {
@@ -56,4 +58,54 @@ nav .sign-up {
     font-weight: 600;
     border-radius: 3px;
     border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.hero .container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 653px;
+    align-items: center;
+    margin: 135px auto;
+}
+
+.hero-headline, .hero-subheadline {
+    text-align: center;
+}
+
+.hero .hero-headline {
+    line-height: 1.3;
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.hero .hero-subheadline {
+    width: 553px;
+    font-size: 16px;
+    color: #000;
+    opacity: 0.6;
+}
+
+.hero-cta {
+    display: flex;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.cta-primary, .cta-secondary {
+    display: inline-block;
+    padding: 10px 17px;
+    font-weight: 600;
+}
+
+.cta-primary {
+    background-color: #001aff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 100px;
+    box-shadow: 0 15px 30px rgba(0, 26, 255, 0.2);
+}
+
+.cta-secondary {
+    color: #001aff;
 }
