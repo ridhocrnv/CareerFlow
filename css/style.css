@@ -302,3 +302,123 @@ nav .sign-up:hover {
         padding-bottom: 60px;
     }
 }
+
+/* --- FOOTER SECTION --- */
+footer {
+    background-color: #fff;
+    border-top: 1px solid #eaecf0; /* Garis pemisah halus di atas footer */
+    padding-top: 60px;
+    padding-bottom: 30px;
+    margin-top: 80px; /* Jarak dari section sebelumnya */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Agar responsif di layar kecil */
+    gap: 40px;
+    margin-bottom: 60px;
+}
+
+/* Kolom Brand (Kiri) */
+.footer-brand-col {
+    max-width: 300px;
+}
+
+.footer-brand-col .brand {
+    font-size: 22px;
+    font-weight: 700;
+    color: #001aff; /* Biru CareerFlow */
+    margin-bottom: 16px;
+    letter-spacing: -0.5px;
+}
+
+.footer-desc {
+    font-size: 14px;
+    color: #667085; /* Abu-abu soft */
+    line-height: 1.6;
+}
+
+/* Kolom Link (Kanan) */
+.footer-links {
+    display: flex;
+    gap: 60px; /* Jarak antar kolom link */
+}
+
+.link-column h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #101828; /* Hitam soft */
+    margin-bottom: 20px;
+}
+
+.link-column a {
+    display: block;
+    text-decoration: none;
+    font-size: 14px;
+    color: #475467;
+    margin-bottom: 12px;
+    transition: color 0.2s ease;
+}
+
+.link-column a:hover {
+    color: #001aff; /* Biru saat di-hover */
+}
+
+/* Footer Bawah (Copyright) */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eaecf0;
+    padding-top: 30px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #98a2b3; /* Abu-abu lebih muda untuk copyright */
+}
+
+.social-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.social-links a {
+    text-decoration: none;
+    display: flex; /* Agar SVG berada tepat di tengah link */
+    color: #667085; /* Warna dasar ikon (abu-abu) */
+    transition: all 0.2s ease;
+}
+
+/* Mengatur ukuran Ikon SVG */
+.social-links svg {
+    width: 24px;  /* Ukuran ikon */
+    height: 24px;
+    fill: currentColor; /* PENTING: Agar warna SVG mengikuti warna teks (color) */
+}
+
+/* Efek Hover */
+.social-links a:hover {
+    color: #001aff; /* Berubah jadi biru saat mouse masuk */
+    transform: translateY(-2px); /* Efek naik sedikit biar dinamis */
+}
+
+/* Responsif untuk Mobile */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+    }
+    
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column-reverse;
+        gap: 20px;
+        text-align: center;
+    }
+}
