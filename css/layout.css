@@ -66,6 +66,30 @@ nav .sign-up:hover {
     color: #fff;
 }
 
+/* --- Update di css/layout.css --- */
+
+/* Wrapper tombol di kanan */
+nav .cta {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Jarak antara Login dan Sign Up */
+}
+
+/* Link Login (Teks biasa) */
+.login-link {
+    text-decoration: none;
+    color: #344054;
+    font-weight: 600;
+    font-size: 15px;
+    transition: color 0.2s;
+}
+
+.login-link:hover {
+    color: #001aff;
+}
+
+/* Pastikan styling Sign Up tetap aman (sudah ada sebelumnya) */
+
 .nav-wrapper {
     display: flex;
     align-items: center;
@@ -192,6 +216,26 @@ footer {
         position: relative;
     }
 
+    nav .cta {
+        margin-top: 20px;
+        width: 100%;
+        display: flex;
+        flex-direction: column; /* Tombol susun ke bawah di HP */
+        gap: 15px;
+        align-items: center;
+    }
+
+    .login-link {
+        font-size: 16px; /* Lebih besar dikit di HP */
+        padding: 10px;
+    }
+
+    /* Pastikan tombol Sign Up lebarnya pas */
+    nav .sign-up {
+        width: 80%; /* Agar tidak terlalu lebar tapi enak ditekan */
+        text-align: center;
+    }
+    
     .hamburger {
         display: block;
         z-index: 1001;
