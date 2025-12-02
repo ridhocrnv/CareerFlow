@@ -313,6 +313,46 @@ nav .sign-up:hover {
     color: #344054;
 }
 
+/* --- TRUSTED COMPANIES --- */
+.trusted-companies {
+    margin-top: -40px; /* Sedikit naik agar menumpuk/dekat dengan hero */
+    margin-bottom: 80px;
+    padding: 30px 0;
+    text-align: center;
+}
+
+.trusted-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #98a2b3; /* Abu-abu soft */
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.logos-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap; /* Agar turun ke bawah di HP */
+    opacity: 0.7; /* Sedikit transparan agar tidak mendominasi */
+}
+
+.company-logo {
+    height: 28px; /* Ukuran seragam */
+    width: auto;
+    filter: grayscale(100%); /* Hitam putih agar rapi */
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.company-logo:hover {
+    filter: grayscale(0%); /* Berwarna saat di-hover */
+    opacity: 1;
+    transform: scale(1.1);
+}
+
 /* --- MEDIA QUERIES (Agar Rapi di HP) --- */
 @media (max-width: 768px) {
     /* Navbar Container */
@@ -527,6 +567,18 @@ footer {
 
 /* Responsif untuk Mobile */
 @media (max-width: 768px) {
+    .trusted-companies {
+        margin-top: 0;
+    }
+
+    .logos-grid {
+        gap: 24px;
+    }
+    
+    .company-logo {
+        height: 24px;
+    }
+
     .footer-content {
         flex-direction: column;
     }
