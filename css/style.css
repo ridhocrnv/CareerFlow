@@ -14,13 +14,15 @@ body {
     background-color: #ffffff;
     
     /* Background Gradient Kekinian */
+    /* FIX: Mengunci background agar konsisten di Mobile & Desktop */
     background-image: linear-gradient(
-        120deg, /* Sedikit dimiringkan agar lebih dinamis */
-        rgba(79, 172, 254, 0.10) 0%,   /* Biru Langit (opacity diturunkan dikit biar teks lebih baca) */
-        rgba(246, 211, 101, 0.10) 50%, /* Kuning Pastel */
-        rgba(132, 250, 176, 0.10) 100% /* Hijau Mint */
+        120deg,
+        rgba(79, 172, 254, 0.10) 0%,
+        rgba(246, 211, 101, 0.10) 50%,
+        rgba(132, 250, 176, 0.10) 100%
     );
-    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     min-height: 100vh;
     color: #1a1a1a; /* Warna teks default hampir hitam (lebih lembut dari #000) */
 }
@@ -951,62 +953,133 @@ footer {
     gap: 10px; /* Panah bergerak sedikit ke kanan */
 }
 
-/* --- NEWSLETTER BOX --- */
+/* --- NEWSLETTER BOX (Redesign) --- */
 .newsletter-box {
-    background-color: #001aff; /* Warna Brand */
-    background-image: linear-gradient(135deg, #001aff 0%, #0016d9 100%);
-    border-radius: 20px;
-    padding: 60px 20px;
+    background: #ffffff;
+    /* Border halus agar menyatu dengan style card lainnya */
+    border: 1px solid #eaecf0; 
+    border-radius: 24px;
+    padding: 60px 24px;
     text-align: center;
-    color: #fff;
+    position: relative;
+    overflow: hidden;
+    
+    /* Shadow lembut tapi dalam (Elevated look) */
+    box-shadow: 0 20px 40px -5px rgba(16, 24, 40, 0.05); 
+    margin-bottom: 20px;
+}
+
+/* Dekorasi gradasi halus di belakang ikon (Glow effect) */
+.newsletter-box::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 26, 255, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.newsletter-icon {
+    width: 56px;
+    height: 56px;
+    background-color: #eff8ff; /* Biru sangat muda */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px auto;
+    position: relative;
+    z-index: 1;
+}
+
+.newsletter-icon svg {
+    width: 28px;
+    height: 28px;
+    color: #001aff; /* Biru brand */
 }
 
 .newsletter-box h3 {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 700;
+    color: #101828;
     margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
 }
 
 .newsletter-box p {
     font-size: 16px;
-    opacity: 0.9;
-    margin-bottom: 30px;
+    color: #667085;
+    margin-bottom: 32px;
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
 }
 
+/* Form Styling agar konsisten */
 .newsletter-form {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    max-width: 500px;
+    gap: 12px;
+    max-width: 480px;
     margin: 0 auto;
-    flex-wrap: wrap; /* Agar responsif di HP */
+    position: relative;
+    z-index: 1;
 }
 
 .newsletter-form input {
     flex: 1;
-    padding: 14px 24px;
-    border-radius: 50px;
-    border: none;
+    padding: 12px 20px;
+    border-radius: 100px;
+    border: 1px solid #d0d5dd;
     outline: none;
-    font-family: inherit;
-    font-size: 15px;
+    font-family: inherit; /* PENTING: Mewarisi font Poppins */
+    font-size: 14px;
+    color: #101828;
+    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05);
+    transition: all 0.2s ease;
+}
+
+.newsletter-form input:focus {
+    border-color: #001aff;
+    box-shadow: 0 0 0 4px rgba(0, 26, 255, 0.1); /* Ring focus effect */
 }
 
 .newsletter-form button {
-    padding: 14px 30px;
-    border-radius: 50px;
+    padding: 12px 28px;
+    border-radius: 100px;
     border: none;
-    background-color: #101828; /* Hitam gelap */
+    background-color: #001aff;
     color: #fff;
     font-weight: 600;
+    font-family: inherit; /* PENTING: Mewarisi font Poppins */
+    font-size: 14px;
     cursor: pointer;
-    font-size: 15px;
-    transition: background 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 26, 255, 0.2); /* Shadow tombol */
+    transition: all 0.2s ease;
 }
 
 .newsletter-form button:hover {
-    background-color: #000;
+    background-color: #0016d9;
+    transform: translateY(-2px); /* Efek naik sedikit */
+    box-shadow: 0 8px 18px rgba(0, 26, 255, 0.3);
+}
+
+/* Responsif Mobile */
+@media (max-width: 600px) {
+    .newsletter-form {
+        flex-direction: column;
+    }
+    
+    .newsletter-form input,
+    .newsletter-form button {
+        width: 100%;
+    }
 }
