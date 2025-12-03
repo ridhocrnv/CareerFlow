@@ -1,18 +1,26 @@
-/* --- HAMBURGER MENU (Navbar) --- */
+/* --- HAMBURGER MENU (Navbar Mobile) --- */
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-wrapper");
 
-// Pastikan elemen ada sebelum menjalankan event listener (mencegah error)
+// Defensive Programming: Cek elemen ada atau tidak
 if (hamburger && navMenu) {
     hamburger.addEventListener("click", () => {
         hamburger.classList.toggle("active");
         navMenu.classList.toggle("active");
+        
+        // Aksesibilitas
+        const isActive = navMenu.classList.contains("active");
+        hamburger.setAttribute("aria-expanded", isActive);
     });
 
-    document.querySelectorAll(".menu-item, .sign-up").forEach(n => n.addEventListener("click", () => {
-        hamburger.classList.remove("active");
-        navMenu.classList.remove("active");
-    }));
+    // FIX: Menambahkan .login-link agar menu tertutup saat tombol Login diklik
+    document.querySelectorAll(".menu-item, .sign-up, .login-link").forEach(link => {
+        link.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+            hamburger.setAttribute("aria-expanded", "false");
+        });
+    });
 }
 
 /* --- JOB FILTER TAGS (Interaksi Tombol Filter) --- */
